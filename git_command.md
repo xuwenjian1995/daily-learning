@@ -52,7 +52,19 @@ git push -u origin master推送本地仓库到远程仓库并且与远程的mast
 由于远程库是空的，我们第一次推送master分支时，加上了-u参数，Git不但会把本地的master分支内容推送的远程新的master分支，还会把本地的master分支和远程的master分支关联起来，在以后的推送或者拉取时就可以简化命令。
 ~~~
 
+19.现在起，我们就可以在本地通过命令提交
 
+~~~~
+git push origin master（可能出现SSH警告）
+~~~~
+
+20.关于SSH警告
+
+> ~~~
+> 当第一次使用git push或者git clone的时候，会得到一个警告，这是因为Git是同SSH链接，而SSH链接在第一次验证GitHub服务器的Key时，需要确认GitHub的Key的指纹信息是否真的来自GitHub的服务器，***输入yes回车即可。(一定要输入yes)这个警告只会出现一次，之后就不会出现了。如果你实在担心有人冒充GitHub服务器，输入yes前可以对照GitHub的RSA Key的指纹信息是否与SSH连接给出的一致。
+> ~~~
+
+21.
 
 
 
