@@ -37,7 +37,22 @@
 > 然后，点“Add SSH Key”，填上任意Title，在Key文本框里粘贴id_rsa.pub文件的内容：
 > ~~~
 
-17.
+17.***在github创建仓库，并与本地仓库进行**关联**，在git上创建了新的仓库后，在github页面上会提示如何和本地仓库进行关联
+
+~~~
+在本地终端输入git remote add origin git@github.com:xuwenjian1995/virtualmachine.git
+这里的origin是默认的，也可以进行修改，在后期的练习中将学习如何修改
+~~~
+
+18.关联以后，就可以把本地库的所有内容推送到远程库上面了**注意注意**：
+
+~~~
+git push -u origin master推送本地仓库到远程仓库并且与远程的master分支相关联
+把本地库的内容推送到远程，用git push命令，实际上是把当前分支master推送到远程。
+由于远程库是空的，我们第一次推送master分支时，加上了-u参数，Git不但会把本地的master分支内容推送的远程新的master分支，还会把本地的master分支和远程的master分支关联起来，在以后的推送或者拉取时就可以简化命令。
+~~~
+
+
 
 
 
