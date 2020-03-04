@@ -64,7 +64,21 @@ git push origin master（可能出现SSH警告）
 > 当第一次使用git push或者git clone的时候，会得到一个警告，这是因为Git是同SSH链接，而SSH链接在第一次验证GitHub服务器的Key时，需要确认GitHub的Key的指纹信息是否真的来自GitHub的服务器，***输入yes回车即可。(一定要输入yes)这个警告只会出现一次，之后就不会出现了。如果你实在担心有人冒充GitHub服务器，输入yes前可以对照GitHub的RSA Key的指纹信息是否与SSH连接给出的一致。
 > ~~~
 
-21.
+21.从远程库克隆到本地，从零开始，最好的方式是先创建远程库，然后，从远程库克隆到本地
+
+首席登录Github创建一个新的仓库，并勾选创建README文件。
+
+~~~
+使用git clone克隆一个本地库
+可以在本地创建一个文件夹，然后使用
+git@github.com:xuwenjian1995/virtualmachineremote.git命令将远程库克隆到本地
+~~~
+
+GitHub给出的地址不止一个，还可以用`https://github.com/michaelliao/gitskills.git`这样的地址。实际上，Git支持多种协议，默认的`git://`使用ssh，但也可以使用`https`等其他协议。
+
+使用`https`除了速度慢以外，还有个最大的麻烦是每次推送都必须输入口令，但是在某些只开放http端口的公司内部就无法使用`ssh`协议而只能用`https`。
+
+22.
 
 
 
