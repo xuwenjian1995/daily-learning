@@ -78,7 +78,43 @@ GitHub给出的地址不止一个，还可以用`https://github.com/michaelliao/
 
 使用`https`除了速度慢以外，还有个最大的麻烦是每次推送都必须输入口令，但是在某些只开放http端口的公司内部就无法使用`ssh`协议而只能用`https`。
 
-22.
+22.分支管理
+
+`HEAD`严格来说不是指向提交，而是指向`master`，`master`才是指向提交的，所以，`HEAD`指向的就是当前分支
+
+假如我们在`dev`上的工作完成了，就可以把`dev`合并到`master`上。Git怎么合并呢？最简单的方法，就是直接把`master`指向`dev`的当前提交
+
+23.创建分支，以及切换到分支
+
+~~~
+git checkout -b dev   git checkout命令加上-b参数表示创建并切换，相当于以下两条命令
+git branch dev
+git checkout dev
+使用git branch 查看当前分支
+git branch
+~~~
+
+24.切换到dev分支后，修改hell.py文件的内容，然后使用git add 和git commit在分支上提交
+
+再切换到master分支使用git status发现hell.py没有发生修改
+
+25.如何将分支合并到主分支
+
+~~~
+git merge dev 前提是切换到主分支再使用git merge 分支
+~~~
+
+26.注意到上面的`Fast-forward`信息，Git告诉我们，这次合并是“快进模式”，也就是直接把`master`指向`dev`的当前提交，所以合并速度非常快。
+
+27.合并完之后删除分支dev
+
+~~~
+git branch -d dev
+~~~
+
+28.关于分支使用switch，在我的虚拟机和本机都不能正常使用
+
+
 
 
 
