@@ -28,7 +28,16 @@
 
 15.如果是工作区误删了文件，使用 git checkout -- 文件名 就可以从仓库里对应的文件恢复到工作区，当然，如果文件从来没有提交到仓库中，那么该文件是不可以被还原（恢复的）
 
-16.
+16.添加公钥到github上去
+
+> ~~~python
+> 1.第一步,在本机生成ssh key,   ssh-keygen -t rsa -C "1214703195@qqs.com"
+> 2.如果一切顺利的话，可以在用户主目录里找到.ssh目录，,可以使用命令cd ~/.ssh里面有id_rsa和id_rsa.pub两个文件，这两个就是SSH Key的秘钥对，id_rsa是私钥，不能泄露出去，id_rsa.pub是公钥，可以放心地告诉任何人。
+> 第2步：登陆GitHub，打开“Account settings”，“SSH Keys”页面：
+> 然后，点“Add SSH Key”，填上任意Title，在Key文本框里粘贴id_rsa.pub文件的内容：
+> ~~~
+
+17.
 
 
 
