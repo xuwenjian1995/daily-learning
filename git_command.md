@@ -1,10 +1,10 @@
 1.创建一个新目录（也可以不为新），称为工作区
 
-2.使用git init初始化目录，会生成一个.git文件，改文件称为git仓库
+2.使用git init初始化目录，会生成一个.git文件，该文件称为git仓库
 
 3.添加文件到工作区中，使用git status查看仓库状态
 
-4.使用git add 添加新增文件到仓库中得暂存区（该命令可以添加多个文件git add readme.txt new.txt）
+4.使用git add 添加新增文件到仓库中的暂存区（该命令可以添加多个文件git add readme.txt new.txt）
 
 5.使用git commit -m “更改信息”提交在暂存区的文件到master分支上，该命令一次性提交多个文件
 
@@ -32,7 +32,7 @@
 
 > ~~~python
 > 1.第一步,在本机生成ssh key,   ssh-keygen -t rsa -C "1214703195@qqs.com"
-> 2.如果一切顺利的话，可以在用户主目录里找到.ssh目录，,可以使用命令cd ~/.ssh里面有id_rsa和id_rsa.pub两个文件，这两个就是SSH Key的秘钥对，id_rsa是私钥，不能泄露出去，id_rsa.pub是公钥，可以放心地告诉任何人。
+> 2.如果一切顺利的话，可以在用户主目录里找到.ssh目录,可以使用命令cd ~/.ssh里面有id_rsa和id_rsa.pub两个文件，这两个就是SSH Key的秘钥对，id_rsa是私钥，不能泄露出去，id_rsa.pub是公钥，可以放心地告诉任何人。
 > 第2步：登陆GitHub，打开“Account settings”，“SSH Keys”页面：
 > 然后，点“Add SSH Key”，填上任意Title，在Key文本框里粘贴id_rsa.pub文件的内容：
 > ~~~
@@ -112,7 +112,13 @@ git merge dev 前提是切换到主分支再使用git merge 分支
 git branch -d dev
 ~~~
 
-28.关于分支使用switch，在我的虚拟机和本机都不能正常使用
+28.关于分支使用switch，在我的虚拟机和本机都不能正常使用（需要进行版本的更新）
+
+29.解决冲突
+
+~~~
+
+~~~
 
 
 
