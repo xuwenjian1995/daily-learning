@@ -1,0 +1,260 @@
+version: "3"
+services:
+  model_manager:
+    environment:
+      TZ: Asia/Shanghai
+    image: dockerhub.datagrand.com/idps/model_manager:release_ci_20190924_78c1b27
+    links:
+      - redis
+      - mysql
+    volumes:
+      - ./data/model_manager/log:/model_manager/model_manager/log
+      - ./data/model_manager/data:/model_manager/model_manager/data
+      - ./data/model_manager/conf:/model_manager/model_manager/conf
+      - ./data/extract_admin_api/upload:/model_manager/model_manager/upload
+  extract:
+    environment:
+      - TZ=Asia/Shanghai
+    image: dockerhub.datagrand.com/idps/extract:release_ci_20191025_49e4185
+    links:
+      - auto_rule_extract_online
+      - fields_analysis_online
+      - crf_extract_online
+    volumes:
+      - ./data/extract/conf:/extract/conf
+      - ./data/extract/log:/extract/log
+      - ./data/extract_admin_api/upload:/extract/upload
+      - ./data/predefined_rule_extract/data:/extract/data
+    deploy:
+      replicas: 20
+  auto_rule_extract_offline:
+    environment:
+      - TZ=Asia/Shanghai
+    image: dockerhub.datagrand.com/idps/auto_rule_extract:release_offline_ci_20191127_eb0f362
+    links:
+      - redis
+    volumes:
+      - ./data/auto_rule_extract/conf:/auto_rule_extract/auto_rule_extract/conf
+      - ./data/auto_rule_extract/data:/auto_rule_extract/output
+      - ./data/model_manager/data:/auto_rule_extract/input
+      - ./data/auto_rule_extract/log:/auto_rule_extract/log
+  auto_rule_extract_online:
+    environment:
+      - TZ=Asia/Shanghai
+    image: dockerhub.datagrand.com/idps/auto_rule_extract:release_online_ci_20191127_eb0f362
+    volumes:
+      - ./data/auto_rule_extract/conf:/auto_rule_extract/auto_rule_extract/conf
+      - ./data/auto_rule_extract/data:/auto_rule_extract/output
+      - ./data/auto_rule_extract/log:/auto_rule_extract/log
+  crf_extract_offline:
+    deploy:
+      resources:
+        limits:
+          memory: 30G
+    environment:
+      - LD_LIBRARY_PATH=/usr/local/lib
+      - TZ=Asia/Shanghai
+      - WORDSEG_HOST=wordseg_rpc
+      - WORDSEG_PORT=8000
+      - NER_HOST=ner_rpc
+      - NER_PORT=8000
+    image: dockerhub.datagrand.com/idps/crf_extract:release_offline_ci_20191129_b4a1bc3
+    links:
+      - redis
+    volumes:
+      - ./data/crf_extract/conf:/crf_extract/crf_extract/conf
+      - ./data/crf_extract/data:/crf_extract/crf_extract/output
+      - ./data/model_manager/data:/crf_extract/crf_extract/input
+      - ./data/crf_extract/log:/crf_extract/crf_extract/log
+  crf_extract_online:
+    environment:
+    - ROLE=master
+    - TZ=Asia/Shanghai
+    - WORDSEG_HOST=wordseg_rpc
+    - WORDSEG_PORT=8000
+    - NER_HOST=ner_rpc
+    - NER_PORT=8000
+    - MQ_USER_NAME=guest
+    - MQ_USER_PASSWORD=guest
+    - MQ_VHOST=/crf_extract
+    - ETCD_PARTITION=crf_extract
+    image: dockerhub.datagrand.com/idps/crf_extract:release_online_ci_20191129_b4a1bc3
+    volumes:
+    - ./data/crf_extract/conf:/crf_extract/crf_extract/conf
+    - ./data/crf_extract/data:/crf_extract/crf_extract/output
+    - ./data/crf_extract/log:/crf_extract/crf_extract/log
+  crf_extract_online_slave:
+    environment:
+    - ROLE=slave
+    - TZ=Asia/Shanghai
+    - WORDSEG_HOST=wordseg_rpc
+    - WORDSEG_PORT=8000
+    - NER_HOST=ner_rpc
+    - NER_PORT=8000
+    - MQ_USER_NAME=guest
+    - MQ_USER_PASSWORD=guest
+    - MQ_VHOST=/crf_extract
+    - ETCD_PARTITION=crf_extract
+    image: dockerhub.datagrand.com/idps/crf_extract:release_online_ci_20191129_b4a1bc3
+    volumes:
+    - ./data/crf_extract/conf:/crf_extract/crf_extract/conf
+    - ./data/crf_extract/data:/crf_extract/crf_extract/output
+    - ./data/crf_extract/log:/crf_extract/crf_extract/log
+    deploy:
+      replicas: 4
+  fuzzy_extract_offline:
+    environment:
+      - TZ=Asia/Shanghai
+    image: dockerhub.datagrand.com/idps/fuzzy_extract:release_offline_ci_20190814_fd81241
+    volumes:
+      - ./data/fuzzy_extract/conf:/fuzzy_extract/fuzzy_extract/conf
+      - ./data/fuzzy_extract/data:/fuzzy_extract/fuzzy_extract/output
+      - ./data/model_manager/data:/fuzzy_extract/fuzzy_extract/input
+      - ./data/fuzzy_extract/log:/fuzzy_extract/fuzzy_extract/log
+  fuzzy_extract_online:
+    environment:
+      - TZ=Asia/Shanghai
+    image: dockerhub.datagrand.com/idps/fuzzy_extract:release_online_ci_20190814_fd81241
+    volumes:
+      - ./data/fuzzy_extract/conf:/fuzzy_extract/fuzzy_extract/conf
+      - ./data/fuzzy_extract/data:/fuzzy_extract/fuzzy_extract/output
+      - ./data/fuzzy_extract/log:/fuzzy_extract/fuzzy_extract/log
+  fields_analysis_offline:
+    environment:
+      - TZ=Asia/Shanghai
+    image: dockerhub.datagrand.com/idps/fields_analysis:release_offline_ci_20190820_7d2dcec
+    links:
+      - redis
+    volumes:
+      - ./data/fields_analysis/conf:/fields_analysis/fields_analysis/conf
+      - ./data/fields_analysis/data:/fields_analysis/fields_analysis/data/train_result
+      - ./data/model_manager/data:/fields_analysis/fields_analysis/data/label
+      - ./data/extract_admin_api/upload:/fields_analysis/fields_analysis/data/rich_content
+      - ./data/fields_analysis/log:/fields_analysis/fields_analysis/log
+  fields_analysis_online:
+    environment:
+      - TZ=Asia/Shanghai
+    image: dockerhub.datagrand.com/idps/fields_analysis:release_online_ci_20190820_7d2dcec
+    volumes:
+      - ./data/fields_analysis/conf:/fields_analysis/fields_analysis/conf
+      - ./data/fields_analysis/data:/fields_analysis/fields_analysis/data/train_result
+      - ./data/fields_analysis/log:/fields_analysis/fields_analysis/log
+  diff_extract_offline:
+    environment:
+      - TZ=Asia/Shanghai
+    image: dockerhub.datagrand.com/idps/diff_extract:release_offline_ci_20191120_72bf061
+    volumes:
+      - ./data/diff_extract/log:/diff_extract/diff_extract/log
+      - ./data/diff_extract/data:/diff_extract/diff_extract/output
+      - ./data/diff_extract/conf:/diff_extract/diff_extract/conf
+      - ./data/diff_extract/tmp:/diff_extract/diff_extract/tmp
+      - ./data/extract_admin_api/upload:/diff_extract/diff_extract/upload
+      - ./data/model_manager/data:/diff_extract/diff_extract/input
+  diff_extract_online:
+    environment:
+      - TZ=Asia/Shanghai
+    image: dockerhub.datagrand.com/idps/diff_extract:release_online_ci_20191120_72bf061
+    volumes:
+      - ./data/diff_extract/log:/diff_extract/diff_extract/log
+      - ./data/diff_extract/data:/diff_extract/diff_extract/output
+      - ./data/diff_extract/conf:/diff_extract/diff_extract/conf
+      - ./data/diff_extract/tmp:/diff_extract/diff_extract/tmp
+      - ./data/extract_admin_api/upload:/diff_extract/diff_extract/upload
+  table_extract_offline:
+    environment:
+      - TZ=Asia/Shanghai
+      - NER_HOST=ner_rpc
+      - NER_PORT=8000
+    image: dockerhub.datagrand.com/idps/table_extract:release_offline_ci_20191018_d7131f6
+    volumes:
+      - ./data/table_extract/log:/table_extract/table_extract/log
+      - ./data/table_extract/data:/table_extract/table_extract/output
+      - ./data/table_extract/conf:/table_extract/table_extract/conf
+      - ./data/table_extract/corpus:/table_extract/table_extract/corpus
+      - ./data/table_extract/scripts:/table_extract/table_extract/app/scripts
+      - ./data/table_extract/tmp:/table_extract/table_extract/tmp
+      - ./data/extract_admin_api/upload:/table_extract/table_extract/upload
+      - ./data/model_manager/data:/table_extract/table_extract/input
+  table_extract_online:
+    environment:
+      - TZ=Asia/Shanghai
+      - NER_HOST=ner_rpc
+      - NER_PORT=8000
+    image: dockerhub.datagrand.com/idps/table_extract:release_online_ci_20191018_d7131f6
+    volumes:
+      - ./data/table_extract/log:/table_extract/table_extract/log
+      - ./data/table_extract/data:/table_extract/table_extract/output
+      - ./data/table_extract/conf:/table_extract/table_extract/conf
+      - ./data/table_extract/scripts:/table_extract/table_extract/app/scripts
+      - ./data/table_extract/tmp:/table_extract/table_extract/tmp
+      - ./data/extract_admin_api/upload:/table_extract/table_extract/upload
+    deploy:
+      replicas: 20
+  dl_extract_online:
+    image: dockerhub.datagrand.com/idps/dl_extract:release_online_ci_20191125_894cea9
+    environment:
+      - MQ_HOST=rabbitmq
+      - MQ_PORT=5672
+      - TZ=Asia/Shanghai
+      - WORDSEG_HOST=wordseg_rpc
+      - WORDSEG_PORT=19000
+      - NER_HOST=ner_rpc
+      - NER_PORT=19001
+      - BERT_SERVER_HOST=dl-online.datagrand.cn
+      - BERT_SERVER_PORT=6766
+    volumes:
+      - ./data/dl_extract/conf:/dl_extract/conf
+      - ./data/dl_extract/data:/dl_extract/output
+      - ./data/dl_extract/log:/dl_extract/log
+    deploy:
+      replicas: 20
+  dl_extract_online_worker:
+    image: dockerhub.datagrand.com/idps/dl_extract:release_online_worker_ci_20191125_894cea9
+    environment:
+      - TZ=Asia/Shanghai
+      - MQ_HOST=rabbitmq
+      - MQ_PORT=5672
+      - WORDSEG_HOST=wordseg_rpc
+      - WORDSEG_PORT=19000
+      - NER_HOST=ner_rpc
+      - NER_PORT=19001
+      - BERT_SERVER_HOST=dl-online.datagrand.cn
+      - BERT_SERVER_PORT=6766
+    volumes:
+      - ./data/dl_extract/conf:/dl_extract/conf
+      - ./data/dl_extract/data:/dl_extract/output
+      - ./data/dl_extract/log:/dl_extract/log
+    deploy:
+      replicas: 8
+  dl_extract_offline:
+    image: dockerhub.datagrand.com/idps/dl_extract:release_offline_ci_20191125_894cea9
+    environment:
+      - TZ=Asia/Shanghai
+      - MQ_HOST=rabbitmq
+      - MQ_PORT=5672
+      - WORDSEG_HOST=wordseg_rpc
+      - WORDSEG_PORT=19000
+      - NER_HOST=ner_rpc
+      - NER_PORT=19001
+      - BERT_SERVER_HOST=dl-online.datagrand.cn
+      - BERT_SERVER_PORT=6766
+    volumes:
+      - ./data/dl_extract/conf:/dl_extract/conf
+      - ./data/dl_extract/data:/dl_extract/output
+      - ./data/dl_extract/embedding:/dl_extract/data
+      - ./data/dl_extract/log:/dl_extract/log
+      - ./data/model_manager/data:/dl_extract/input
+    deploy:
+      resources:
+        limits:
+          memory: 30G
+  predefined_rule_extract:
+    environment:
+      - TZ=Asia/Shanghai
+    image: dockerhub.datagrand.com/idps/predefined_rule_extract:release_ci_20191024_8ae6712
+    volumes:
+      - ./data/predefined_rule_extract/conf:/predefined_rule_extract/predefined_rule_extract/conf
+      - ./data/predefined_rule_extract/evaluate_data:/predefined_rule_extract/evaluate_output
+      - ./data/predefined_rule_extract/data:/predefined_rule_extract/output
+      - ./data/predefined_rule_extract/log:/predefined_rule_extract/log
+      - ./data/extract_admin_api/upload:/predefined_rule_extract/upload

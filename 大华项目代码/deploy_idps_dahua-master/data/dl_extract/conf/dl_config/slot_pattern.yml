@@ -1,0 +1,30 @@
+slot_map:   #词槽名与词槽类型对应
+  - slot_name: 'KEY_WORD_1'
+    slot_type: 'KEY_WORD1' #省或直辖市
+  - slot_name: 'KEY_WORD_2'
+    slot_type: 'KEY_WORD2' #省或直辖市
+  - slot_name: 'KEY_WORD_3'
+    slot_type: 'KEY_WORD3' #省或直辖市
+  - slot_name: 'KEY_WORD_4'
+    slot_type: 'KEY_WORD4' #省或直辖市
+
+slot_type:
+  KEY_WORD1:
+    regex:
+    slot_dict:
+      '原告':
+  KEY_WORD2:
+    regex:
+    slot_dict:
+      '律师':
+  KEY_WORD3:
+    regex:
+    slot_dict:
+      '被告':
+  KEY_WORD4:
+    regex:
+    slot_dict:
+      '律师事务所':
+
+
+

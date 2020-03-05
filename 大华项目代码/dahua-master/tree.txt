@@ -1,0 +1,92 @@
+.
+├── README.md
+├── __init__.py
+├── app.py
+├── conf
+│   ├── __init__.py
+│   ├── conf.py
+│   ├── menu.txt
+│   └── model
+│       ├── 30.json
+│       ├── 35.json
+│       ├── test_model.json
+│       └── test_model.txt
+├── dahua_log.py
+├── docker
+│   ├── Dockerfile
+│   └── build_docker_image.sh
+├── files
+│   ├── 20.pdf
+│   ├── HK01.xlsx
+│   ├── check_demo.json
+│   ├── extract.json
+│   ├── scan_01.pdf
+│   ├── test01.pdf
+│   ├── test02.pdf
+│   └── test03.pdf
+├── install_requirement.sh
+├── log
+├── requirement.txt
+├── route
+│   ├── __init__.py
+│   └── dahua
+│       ├── Test.py
+│       ├── __init__.py
+│       ├── aboard_utils.py
+│       ├── abroad_status_model.py
+│       ├── compareIn.py
+│       ├── compareOut.py
+│       ├── dahuaUtilsIn.py
+│       ├── docObjectIn.py
+│       ├── fapiao.py
+│       ├── pdfDealIn.py
+│       ├── test_aboard.py
+│       ├── testjson.py
+│       ├── tmp.json
+│       └── tmp.py
+├── run.sh
+├── template
+│   ├── abroad_status.html
+│   ├── doc_info.html
+│   ├── doc_show.html
+│   ├── fapiao.html
+│   ├── index.html
+│   └── result_show.html
+├── test
+│   ├── 1.pdf
+│   ├── audit_return.json
+│   ├── final.json
+│   ├── post_result.json
+│   ├── test0001.html
+│   ├── test0001.json
+│   ├── test0001.py
+│   ├── test0002.json
+│   ├── test0003_copy.py
+│   ├── test0004.py
+│   ├── test001.html
+│   ├── test001.txt
+│   ├── test002.py
+│   ├── test_selenium.py
+│   └── �\234\200�\210�\224�\233\236�\231大�\215\216�\232\204样�\213.json
+├── tools
+│   ├── __init__.py
+│   ├── idps
+│   │   ├── __init__.py
+│   │   ├── idps_login.py
+│   │   ├── idps_utils.py
+│   │   └── utils
+│   └── utils
+│       ├── __init__.py
+│       ├── convertPDF.py
+│       ├── create_pdf.py
+│       ├── des3_utils.py
+│       ├── files
+│       │   └── simhei.ttf
+│       ├── ftp_download.py
+│       ├── html_to_pdf.py
+│       ├── simple_utils.py
+│       ├── template_utils.py
+│       └── zip.py
+└── tree.txt
+
+14 directories, 75 files

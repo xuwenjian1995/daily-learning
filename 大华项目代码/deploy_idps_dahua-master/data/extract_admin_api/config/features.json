@@ -1,0 +1,1021 @@
+{
+  "doc_type_list": [
+    {
+      "id": 0,
+      "name": "债券募集说明书"
+    },
+    {
+      "id": 0,
+      "name": "招股说明书"
+    },
+    {
+      "id": 0,
+      "name": "基金合同"
+    },
+    {
+      "id": 0,
+      "name": "股权质押公告"
+    },
+    {
+      "id": 0,
+      "name": "上市公司年报"
+    },
+    {
+      "id": 0,
+      "name": "审计报告"
+    },
+    {
+      "id": 0,
+      "name": "采购合同"
+    },
+    {
+      "id": 0,
+      "name": "借贷合同"
+    },
+    {
+      "id": 0,
+      "name": "框架销售合同"
+    },
+    {
+      "id": 0,
+      "name": "买卖合同"
+    },
+    {
+      "id": 0,
+      "name": "单笔销售合同"
+    },
+    {
+      "id": 0,
+      "name": "租赁合同"
+    },
+    {
+      "id": 0,
+      "name": "民事判决书"
+    },
+    {
+      "id": 0,
+      "name": "人事变动公告"
+    },
+    {
+      "id": 0,
+      "name": "重疾险合同"
+    },
+    {
+      "id": 0,
+      "name": "意外伤害险合同"
+    },
+    {
+      "id": 0,
+      "name": "财产保险合同"
+    },
+    {
+      "id": 0,
+      "name": "审批意见书"
+    },
+    {
+      "id": 0,
+      "name": "贷款评估报告"
+    },
+    {
+      "id": 0,
+      "name": "裁判文书"
+    },
+    {
+      "id": 0,
+      "name": "判决书"
+    },
+    {
+      "id": 0,
+      "name": "法律意见书"
+    },
+    {
+      "id": 0,
+      "name": "身份证抽取"
+    },
+    {
+      "id": 0,
+      "name": "营业执照抽取"
+    },
+    {
+      "id": 0,
+      "name": "发票抽取"
+    },
+    {
+      "id": 0,
+      "name": "火车票抽取"
+    },
+    {
+      "id": 0,
+      "name": "签证护照抽取"
+    },
+    {
+      "id": 0,
+      "name": "通用文档抽取"
+    },
+    {
+      "id": 0,
+      "name": "政府红头文件"
+    }
+  ],
+  "industry_type_list": [
+    {
+      "id": 0,
+      "name": "常用文件"
+    },
+    {
+      "id": 0,
+      "name": "证券行业"
+    },
+    {
+      "id": 0,
+      "name": "通用合同"
+    },
+    {
+      "id": 0,
+      "name": "其他文书"
+    },
+    {
+      "id": 0,
+      "name": "保险行业"
+    },
+    {
+      "id": 0,
+      "name": "银行行业"
+    },
+    {
+      "id": 0,
+      "name": "法律行业"
+    },
+    {
+      "id": 0,
+      "name": "解析工具"
+    },
+    {
+      "id": 0,
+      "name": "常用比对形式"
+    },
+    {
+      "id": 0,
+      "name": "默认分类"
+    }
+  ],
+  "features_type_list": [
+        {
+            "features_type": 2,
+            "hot_type": 1,
+            "self_type": 1,
+            "status": 1,
+            "industry_type_id": "证券行业",
+            "name": "债券募集说明书",
+            "doc_type_id": "债券募集说明书",
+            "icon": "assets/img/债券募集书@2x.png",
+            "desc": "可提取债券募集说明书内全部财务信息与部分非财务信息，为财务一致性审核、工商信息校验、行业信息统计等奠定基础。",
+            "id": 0
+        },
+        {
+            "features_type": 2,
+            "hot_type": 1,
+            "self_type": 1,
+            "status": 1,
+            "industry_type_id": "证券行业",
+            "name": "招股说明书",
+            "doc_type_id": "招股说明书",
+            "icon": "assets/img/招股说明书@2x.png",
+            "desc": "可抽取招股说明书内涉及的全部财务信息及发行人、保荐机构等非财务信息，形成结构化数据，方便浏览审核及统计分析。",
+            "id": 0
+        },
+        {
+            "features_type": 2,
+            "hot_type": 0,
+            "self_type": 1,
+            "status": 1,
+            "industry_type_id": "证券行业",
+            "name": "基金合同",
+            "doc_type_id": "基金合同",
+            "icon": "assets/img/基金合同@2x.png",
+            "desc": "内含基金基本情况、基金募集、基金成立与备案、基金的投资等内容，形成结构化文档。分门别类，智能抽取，满足用户的各类需求。",
+            "id": 0
+        },
+        {
+            "features_type": 2,
+            "hot_type": 0,
+            "self_type": 1,
+            "status": 1,
+            "industry_type_id": "证券行业",
+            "name": "股权质押公告",
+            "doc_type_id": "股权质押公告",
+            "icon": "assets/img/股权质押公告.svg",
+            "desc": "内嵌质押股权数、质押期限、担保情况等字段，方便用户在上传公告后即刻形成结构化文档，以进行整理归类、自动填列等操作。",
+            "id": 0
+        },
+        {
+            "features_type": 2,
+            "hot_type": 0,
+            "self_type": 1,
+            "status": 1,
+            "industry_type_id": "证券行业",
+            "name": "上市公司年报",
+            "doc_type_id": "上市公司年报",
+            "icon": "assets/img/上市公司年报@2x.png",
+            "desc": "可抽取年报中财务信息、公司概况信息、董监高等方向内容，方便用户对年报信息进行结构化抽取和信息存储与应用。",
+            "id": 0
+        },
+        {
+            "features_type": 2,
+            "hot_type": 0,
+            "self_type": 1,
+            "status": 1,
+            "industry_type_id": "证券行业",
+            "name": "审计报告",
+            "doc_type_id": "审计报告",
+            "icon": "assets/img/审计报告@2x.png",
+            "desc": "可抽取审计意见类型、关键审计事项，及财务报表附注信息中的文字与财务数据信息，以方便用户进行统计与数字审核。",
+            "id": 0
+        },
+        {
+            "features_type": 2,
+            "hot_type": 1,
+            "self_type": 1,
+            "status": 1,
+            "industry_type_id": "通用合同",
+            "name": "采购合同",
+            "doc_type_id": "采购合同",
+            "icon": "assets/img/采购合同@2x.png",
+            "desc": "可抽取出采购合同中甲方、乙方、金额、争议解决方式等关键信息，形成结构化数据，方便用户快速查阅合同信息。",
+            "id": 0
+        },
+        {
+            "features_type": 2,
+            "hot_type": 0,
+            "self_type": 1,
+            "status": 2,
+            "industry_type_id": "通用合同",
+            "name": "借贷合同",
+            "doc_type_id": "借贷合同",
+            "icon": "assets/img/借贷合同@2x.png",
+            "desc": "贷款种类、贷款利率、贷款信息等十三个借贷合同中的数据可直接提取，方便用户快速浏览定位合同中的关键信息。",
+            "id": 0
+        },
+        {
+            "features_type": 2,
+            "hot_type": 0,
+            "self_type": 1,
+            "status": 2,
+            "industry_type_id": "通用合同",
+            "name": "租赁合同",
+            "doc_type_id": "租赁合同",
+            "icon": "assets/img/租赁合同@2x.png",
+            "desc": "可抽取出租赁合同中存续期限、管理费信息、托管费信息等五十个关键信息，方便用户快速浏览定位合同信息。",
+            "id": 0
+        },
+        {
+            "features_type": 2,
+            "hot_type": 0,
+            "self_type": 1,
+            "status": 2,
+            "industry_type_id": "通用合同",
+            "name": "买卖合同",
+            "doc_type_id": "买卖合同",
+            "icon": "",
+            "desc": "合同金额、币种、标的信息、质量标注、甲方信息、乙方信息等68个关键要素可直接提取，方便用户在实际场景中查阅买卖合同。",
+            "id": 0
+        },
+        {
+            "features_type": 2,
+            "hot_type": 1,
+            "self_type": 1,
+            "status": 1,
+            "industry_type_id": "通用合同",
+            "name": "单笔销售合同",
+            "doc_type_id": "单笔销售合同",
+            "icon": "",
+            "desc": "可抽取甲方、乙方、合同金额、交货日期等三十一个关键信息，在作为交易达成时的基本凭证时，可快速便捷的查阅合同信息。",
+            "id": 0
+        },
+        {
+            "features_type": 2,
+            "hot_type": 1,
+            "self_type": 1,
+            "status": 1,
+            "industry_type_id": "通用合同",
+            "name": "框架销售合同",
+            "doc_type_id": "框架销售合同",
+            "icon": "",
+            "desc": "可抽取合同信息、质保金、无上限经济责任等三十二个关键信息，形成结构化文档，即可放便用户快速浏览信息，也可归档数据。",
+            "id": 0
+        },
+        {
+            "features_type": 2,
+            "hot_type": 1,
+            "self_type": 1,
+            "status": 1,
+            "industry_type_id": "其他文书",
+            "name": "民事判决书",
+            "doc_type_id": "民事判决书",
+            "icon": "assets/img/民事判决书@2x.png",
+            "desc": "原告、被告、案件信息等几十个关键信息智能抽取，形成结构化文档，即可方便用户快速浏览数据，也便于归档数据。",
+            "id": 0
+        },
+        {
+            "features_type": 2,
+            "hot_type": 1,
+            "self_type": 1,
+            "status": 1,
+            "industry_type_id": "其他文书",
+            "name": "人事变动公告",
+            "doc_type_id": "人事变动公告",
+            "icon": "assets/img/人事变动公告@2x.png",
+            "desc": "可抽取出离职高管信息、离职原因、继任者信息等多个字段信息。方便用户快速浏览公告信息。",
+            "id": 0
+        },
+        {
+            "features_type": 2,
+            "hot_type": 0,
+            "self_type": 1,
+            "status": 1,
+            "industry_type_id": "保险行业",
+            "name": "重疾险合同",
+            "doc_type_id": "重疾险合同",
+            "icon": "",
+            "desc": "重疾险合同中的重疾数量、重疾赔付次数、身故赔偿金、等待期等多个关键性信息智能抽取。方便用户从几十页合同中快速审阅信息。",
+            "id": 0
+        },
+        {
+            "features_type": 2,
+            "hot_type": 0,
+            "self_type": 1,
+            "status": 1,
+            "industry_type_id": "保险行业",
+            "name": "意外伤害险合同",
+            "doc_type_id": "意外伤害险合同",
+            "icon": "",
+            "desc": "使用NLP、机器学习、深度学习等技术抽取出意外伤害险合同的关键要素，包含意外险信息、赔偿金等多个字段信息。",
+            "id": 0
+        },
+        {
+            "features_type": 2,
+            "hot_type": 0,
+            "self_type": 1,
+            "status": 1,
+            "industry_type_id": "保险行业",
+            "name": "财产保险合同",
+            "doc_type_id": "财产保险合同",
+            "icon": "",
+            "desc": "使用NLP、机器学习、深度学习等技术抽取出财产保险合同的关键要素，包含财产保险信息、财产赔偿金等多个字段信息。",
+            "id": 0
+        },
+        {
+            "features_type": 2,
+            "hot_type": 0,
+            "self_type": 1,
+            "status": 1,
+            "industry_type_id": "银行行业",
+            "name": "审批意见书",
+            "doc_type_id": "审批意见书",
+            "icon": "",
+            "desc": "使用NLP、机器学习、深度学习等技术抽取出审批意见书的关键要素。",
+            "id": 0
+        },
+        {
+            "features_type": 2,
+            "hot_type": 0,
+            "self_type": 1,
+            "status": 1,
+            "industry_type_id": "银行行业",
+            "name": "贷款评估报告",
+            "doc_type_id": "贷款评估报告",
+            "icon": "",
+            "desc": "使用NLP、机器学习、深度学习等技术抽取出贷款评估报告的关键要素。",
+            "id": 0
+        },
+        {
+            "features_type": 2,
+            "hot_type": 0,
+            "self_type": 1,
+            "status": 1,
+            "industry_type_id": "法律行业",
+            "name": "裁判文书",
+            "doc_type_id": "裁判文书",
+            "icon": "",
+            "desc": "使用NLP、机器学习、深度学习等技术抽取出裁判文书的关键要素。",
+            "id": 0
+        },
+        {
+            "features_type": 2,
+            "hot_type": 0,
+            "self_type": 1,
+            "status": 1,
+            "industry_type_id": "法律行业",
+            "name": "判决书",
+            "doc_type_id": "判决书",
+            "icon": "",
+            "desc": "使用NLP、机器学习、深度学习等技术抽取出判决书的关键要素。",
+            "id": 0
+        },
+        {
+            "features_type": 2,
+            "hot_type": 0,
+            "self_type": 1,
+            "status": 1,
+            "industry_type_id": "法律行业",
+            "name": "法律意见书",
+            "doc_type_id": "法律意见书",
+            "icon": "",
+            "desc": "使用NLP、机器学习、深度学习等技术抽取出法律意见书的关键要素。",
+            "id": 0
+        },
+
+        {
+            "features_type": 3,
+            "hot_type": 1,
+            "self_type": 1,
+            "status": 1,
+            "industry_type_id": "常用文件",
+            "name": "发票抽取",
+            "doc_type_id": "发票抽取",
+            "icon": "assets/img/发票抽取@2x.png",
+            "desc": "使用CV算法、机器学习、深度学习等技术识别出发票的关键要素，包含发票代码、开票日期、金额、税额等22个字段信息。",
+            "id": 0
+        },
+        {
+            "features_type": 3,
+            "hot_type": 1,
+            "self_type": 1,
+            "status": 1,
+            "industry_type_id": "常用文件",
+            "name": "身份证抽取",
+            "doc_type_id": "身份证抽取",
+            "icon": "assets/img/身份证抽取@2x.png",
+            "desc": "使用CV算法、机器学习、深度学习等技术识别出身份证重的关键要素，包含姓名、性别、民族、住址等8个字段信息。",
+            "id": 0
+        },
+        {
+            "features_type": 3,
+            "hot_type": 1,
+            "self_type": 1,
+            "status": 1,
+            "industry_type_id": "常用文件",
+            "name": "营业执照抽取",
+            "doc_type_id": "营业执照抽取",
+            "icon": "assets/img/营业执照抽取@2x.png",
+            "desc": "使用CV算法、机器学习、深度学习等技术识别出营业执照的关键要素，包含法定代表人、公司名称、营业期限等10个字段信息。",
+            "id": 0
+        },
+        {
+            "features_type": 3,
+            "hot_type": 0,
+            "self_type": 1,
+            "status": 1,
+            "industry_type_id": "常用文件",
+            "name": "火车票抽取",
+            "doc_type_id": "火车票抽取",
+            "icon": "assets/img/火车票抽取@2x.png",
+            "desc": "使用CV算法、机器学习、深度学习等技术识别出火车票的关键要素。",
+            "id": 0
+        },
+        {
+            "features_type": 3,
+            "hot_type": 0,
+            "self_type": 1,
+            "status": 1,
+            "industry_type_id": "常用文件",
+            "name": "签证护照抽取",
+            "doc_type_id": "签证护照抽取",
+            "icon": "assets/img/签证护照抽取@2x.png",
+            "desc": "使用CV算法、机器学习、深度学习等技术识别出签证护照的关键要素。",
+            "id": 0
+        },
+        {
+            "features_type": 3,
+            "hot_type": 0,
+            "self_type": 1,
+            "status": 1,
+            "industry_type_id": "常用文件",
+            "name": "通用文档抽取",
+            "doc_type_id": "通用文档抽取",
+            "icon": "assets/img/通用文档抽取@2x.png",
+            "desc": "使用CV算法、机器学习、深度学习等技术识别出通用文档的关键要素。",
+            "id": 0
+        },
+        {
+            "features_type": 3,
+            "hot_type": 0,
+            "self_type": 1,
+            "status": 1,
+            "industry_type_id": "常用文件",
+            "name": "政府红头文件",
+            "doc_type_id": "政府红头文件",
+            "icon": "assets/img/通用文档抽取@2x.png",
+            "desc": "政府红头文件关键要素抽取，抽取出“发文号”、“标题名称”等关键信息",
+            "id": 0
+        },
+        {
+            "features_type": 3,
+            "hot_type": 0,
+            "self_type": 1,
+            "status": 1,
+            "industry_type_id": "证券行业",
+            "name": "债券募集说明书",
+            "doc_type_id": "债券募集说明书",
+            "icon": "assets/img/债券募集书@2x.png",
+            "desc": "可提取债券募集说明书内全部财务信息与部分非财务信息，为财务一致性审核、工商信息校验、行业信息统计等奠定基础。",
+            "id": 0
+        },
+        {
+            "features_type": 3,
+            "hot_type": 0,
+            "self_type": 1,
+            "status": 1,
+            "industry_type_id": "证券行业",
+            "name": "招股说明书",
+            "doc_type_id": "招股说明书",
+            "icon": "assets/img/招股说明书@2x.png",
+            "desc": "可抽取招股说明书内涉及的全部财务信息及发行人、保荐机构等非财务信息，形成结构化数据，方便浏览审核及统计分析。",
+            "id": 0
+        },
+        {
+            "features_type": 3,
+            "hot_type": 0,
+            "self_type": 1,
+            "status": 1,
+            "industry_type_id": "证券行业",
+            "name": "基金合同",
+            "doc_type_id": "基金合同",
+            "icon": "assets/img/基金合同@2x.png",
+            "desc": "内含基金基本情况、基金募集、基金成立与备案、基金的投资等内容，形成结构化文档。分门别类，智能抽取，满足用户的各类需求。",
+            "id": 0
+        },
+        {
+            "features_type": 3,
+            "hot_type": 0,
+            "self_type": 1,
+            "status": 1,
+            "industry_type_id": "证券行业",
+            "name": "股权质押公告",
+            "doc_type_id": "股权质押公告",
+            "icon": "assets/img/股权质押公告.svg",
+            "desc": "内嵌质押股权数、质押期限、担保情况等字段，方便用户在上传公告后即刻形成结构化文档，以进行整理归类、自动填列等操作。",
+            "id": 0
+        },
+        {
+            "features_type": 3,
+            "hot_type": 0,
+            "self_type": 1,
+            "status": 1,
+            "industry_type_id": "证券行业",
+            "name": "上市公司年报",
+            "doc_type_id": "上市公司年报",
+            "icon": "assets/img/上市公司年报@2x.png",
+            "desc": "可抽取年报中财务信息、公司概况信息、董监高等方向内容，方便用户对年报信息进行结构化抽取和信息存储与应用。",
+            "id": 0
+        },
+        {
+            "features_type": 3,
+            "hot_type": 0,
+            "self_type": 1,
+            "status": 1,
+            "industry_type_id": "证券行业",
+            "name": "审计报告",
+            "doc_type_id": "审计报告",
+            "icon": "assets/img/审计报告@2x.png",
+            "desc": "可抽取审计意见类型、关键审计事项，及财务报表附注信息中的文字与财务数据信息，以方便用户进行统计与数字审核。",
+            "id": 0
+        },
+        {
+            "features_type": 3,
+            "hot_type": 1,
+            "self_type": 1,
+            "status": 1,
+            "industry_type_id": "通用合同",
+            "name": "采购合同",
+            "doc_type_id": "采购合同",
+            "icon": "assets/img/采购合同@2x.png",
+            "desc": "可抽取出采购合同中甲方、乙方、金额、争议解决方式等关键信息，方便用户快速查阅合同信息。",
+            "id": 0
+        },
+        {
+            "features_type": 3,
+            "hot_type": 0,
+            "self_type": 1,
+            "status": 2,
+            "industry_type_id": "通用合同",
+            "name": "借贷合同",
+            "doc_type_id": "借贷合同",
+            "icon": "assets/img/借贷合同@2x.png",
+            "desc": "贷款种类、贷款利率、贷款信息等十三个借贷合同中的数据可直接提取，方便用户快速浏览定位合同中的关键信息。",
+            "id": 0
+        },
+        {
+            "features_type": 3,
+            "hot_type": 0,
+            "self_type": 1,
+            "status": 2,
+            "industry_type_id": "通用合同",
+            "name": "租赁合同",
+            "doc_type_id": "租赁合同",
+            "icon": "assets/img/租赁合同@2x.png",
+            "desc": "可抽取出租赁合同中存续期限、管理费信息、托管费信息等五十个关键信息，方便用户快速浏览定位合同信息。",
+            "id": 0
+        },
+        {
+            "features_type": 3,
+            "hot_type": 0,
+            "self_type": 1,
+            "status": 2,
+            "industry_type_id": "通用合同",
+            "name": "买卖合同",
+            "doc_type_id": "买卖合同",
+            "icon": "",
+            "desc": "合同金额、币种、标的信息、质量标注、甲方信息、乙方信息等68个关键要素可直接提取，方便用户在实际场景中查阅买卖合同。",
+            "id": 0
+        },
+        {
+            "features_type": 3,
+            "hot_type": 1,
+            "self_type": 1,
+            "status": 1,
+            "industry_type_id": "通用合同",
+            "name": "单笔销售合同",
+            "doc_type_id": "单笔销售合同",
+            "icon": "",
+            "desc": "可抽取甲方、乙方、合同金额、交货日期等三十一个关键信息，在作为交易达成时的基本凭证时，可快速便捷的查阅合同信息。",
+            "id": 0
+        },
+        {
+            "features_type": 3,
+            "hot_type": 1,
+            "self_type": 1,
+            "status": 1,
+            "industry_type_id": "通用合同",
+            "name": "框架销售合同",
+            "doc_type_id": "框架销售合同",
+            "icon": "",
+            "desc": "可抽取合同信息、质保金、无上限经济责任等三十二个关键信息，形成结构化文档，即可放便用户快速浏览信息，也可归档数据。",
+            "id": 0
+        },
+        {
+            "features_type": 3,
+            "hot_type": 1,
+            "self_type": 1,
+            "status": 1,
+            "industry_type_id": "其他文书",
+            "name": "民事判决书",
+            "doc_type_id": "民事判决书",
+            "icon": "assets/img/民事判决书@2x.png",
+            "desc": "原告、被告、案件信息等几十个关键信息智能抽取，形成结构化文档，即可方便用户快速浏览数据，也便于归档数据。",
+            "id": 0
+        },
+        {
+            "features_type": 3,
+            "hot_type": 1,
+            "self_type": 1,
+            "status": 1,
+            "industry_type_id": "其他文书",
+            "name": "人事变动公告",
+            "doc_type_id": "人事变动公告",
+            "icon": "assets/img/人事变动公告@2x.png",
+            "desc": "可抽取出离职高管信息、离职原因、继任者信息等多个字段信息。方便用户快速浏览公告信息。",
+            "id": 0
+        },
+        {
+            "features_type": 3,
+            "hot_type": 0,
+            "self_type": 1,
+            "status": 1,
+            "industry_type_id": "保险行业",
+            "name": "重疾险合同",
+            "doc_type_id": "重疾险合同",
+            "icon": "",
+            "desc": "重疾险合同中的重疾数量、重疾赔付次数、身故赔偿金、等待期等多个关键性信息智能抽取。方便用户从几十页合同中快速审阅信息。",
+            "id": 0
+        },
+        {
+            "features_type": 3,
+            "hot_type": 0,
+            "self_type": 1,
+            "status": 1,
+            "industry_type_id": "保险行业",
+            "name": "意外伤害险合同",
+            "doc_type_id": "意外伤害险合同",
+            "icon": "",
+            "desc": "使用NLP、机器学习、深度学习等技术抽取出意外伤害险合同的关键要素，包含意外险信息、赔偿金等多个字段信息。",
+            "id": 0
+        },
+        {
+            "features_type": 3,
+            "hot_type": 0,
+            "self_type": 1,
+            "status": 1,
+            "industry_type_id": "保险行业",
+            "name": "财产保险合同",
+            "doc_type_id": "财产保险合同",
+            "icon": "",
+            "desc": "使用NLP、机器学习、深度学习等技术抽取出财产保险合同的关键要素，包含财产保险信息、财产赔偿金等多个字段信息。",
+            "id": 0
+        },
+        {
+            "features_type": 3,
+            "hot_type": 0,
+            "self_type": 1,
+            "status": 1,
+            "industry_type_id": "银行行业",
+            "name": "审批意见书",
+            "doc_type_id": "审批意见书",
+            "icon": "",
+            "desc": "使用NLP、机器学习、深度学习等技术抽取出审批意见书的关键要素。",
+            "id": 0
+        },
+        {
+            "features_type": 3,
+            "hot_type": 0,
+            "self_type": 1,
+            "status": 1,
+            "industry_type_id": "银行行业",
+            "name": "贷款评估报告",
+            "doc_type_id": "贷款评估报告",
+            "icon": "",
+            "desc": "使用NLP、机器学习、深度学习等技术抽取出贷款评估报告的关键要素。",
+            "id": 0
+        },
+        {
+            "features_type": 3,
+            "hot_type": 0,
+            "self_type": 1,
+            "status": 1,
+            "industry_type_id": "法律行业",
+            "name": "裁判文书",
+            "doc_type_id": "裁判文书",
+            "icon": "",
+            "desc": "使用NLP、机器学习、深度学习等技术抽取出裁判文书的关键要素。",
+            "id": 0
+        },
+        {
+            "features_type": 3,
+            "hot_type": 0,
+            "self_type": 1,
+            "status": 1,
+            "industry_type_id": "法律行业",
+            "name": "判决书",
+            "doc_type_id": "判决书",
+            "icon": "",
+            "desc": "使用NLP、机器学习、深度学习等技术抽取出判决书的关键要素。",
+            "id": 0
+        },
+        {
+            "features_type": 3,
+            "hot_type": 0,
+            "self_type": 1,
+            "status": 1,
+            "industry_type_id": "法律行业",
+            "name": "法律意见书",
+            "doc_type_id": "法律意见书",
+            "icon": "",
+            "desc": "使用NLP、机器学习、深度学习等技术抽取出法律意见书的关键要素。",
+            "id": 0
+        },
+
+        {
+            "features_type": 1,
+            "hot_type": 1,
+            "self_type": 1,
+            "status": 2,
+            "industry_type_id": "证券行业",
+            "name": "债券募集说明书内容审核",
+            "doc_type_id": "债券募集说明书",
+            "icon": "assets/img/债券募集书@2x.png",
+            "desc": "使用NLP、机器学习、深度学习等技术完成债券募集说明书的内容审核，包含文档审核、表格格式审核、财务一致性审核。",
+            "id": 0
+        },
+        {
+            "features_type": 1,
+            "hot_type": 1,
+            "self_type": 1,
+            "status": 2,
+            "industry_type_id": "证券行业",
+            "name": "招股说明书内容审核",
+            "doc_type_id": "招股说明书",
+            "icon": "assets/img/招股说明书@2x.png",
+            "desc": "使用NLP、机器学习、深度学习等技术完成招股说明书的内容审核，包含表格格式审核、财务一致性审核、表文校验等。",
+            "id": 0
+        },
+        {
+            "features_type": 1,
+            "hot_type": 0,
+            "self_type": 1,
+            "status": 2,
+            "industry_type_id": "证券行业",
+            "name": "基金合同内容审核",
+            "doc_type_id": "基金合同",
+            "icon": "assets/img/基金合同@2x.png",
+            "desc": "使用NLP、机器学习、深度学习等技术抽取出基金合同的内容审核、合规性审核、完备性审核等。",
+            "id": 0
+        },
+        {
+            "features_type": 1,
+            "hot_type": 1,
+            "self_type": 1,
+            "status": 1,
+            "industry_type_id": "通用合同",
+            "name": "采购合同",
+            "doc_type_id": "采购合同",
+            "icon": "assets/img/采购合同@2x.png",
+            "desc": "使用NLP、机器学习、深度学习等技术审核出采购合同的风险点，包含合同金额一致性、合同完备性等数数十个审核规则。",
+            "id": 0
+        },
+        {
+            "features_type": 1,
+            "hot_type": 0,
+            "self_type": 1,
+            "status": 2,
+            "industry_type_id": "通用合同",
+            "name": "借贷合同",
+            "doc_type_id": "借贷合同",
+            "icon": "assets/img/借贷合同@2x.png",
+            "desc": "使用NLP、机器学习、深度学习等技术审核出借贷合同的风险点。",
+            "id": 0
+        },
+        {
+            "features_type": 1,
+            "hot_type": 0,
+            "self_type": 1,
+            "status": 2,
+            "industry_type_id": "通用合同",
+            "name": "租赁合同",
+            "doc_type_id": "租赁合同",
+            "icon": "assets/img/租赁合同@2x.png",
+            "desc": "使用NLP、机器学习、深度学习等技术抽取出租赁合同的风险点。",
+            "id": 0
+        },
+        {
+            "features_type": 1,
+            "hot_type": 0,
+            "self_type": 1,
+            "status": 2,
+            "industry_type_id": "通用合同",
+            "name": "买卖合同",
+            "doc_type_id": "买卖合同",
+            "icon": "",
+            "desc": "使用NLP、机器学习、深度学习等技术审核出买卖合同的风险点。",
+            "id": 0
+        },
+        {
+            "features_type": 1,
+            "hot_type": 1,
+            "self_type": 1,
+            "status": 1,
+            "industry_type_id": "通用合同",
+            "name": "单笔销售合同",
+            "doc_type_id": "单笔销售合同",
+            "icon": "",
+            "desc": "使用NLP、机器学习、深度学习等技术审核出单笔销售合同的风险点，包含合同完备性、合规性等43条审核规则。",
+            "id": 0
+        },
+        {
+            "features_type": 1,
+            "hot_type": 1,
+            "self_type": 1,
+            "status": 1,
+            "industry_type_id": "通用合同",
+            "name": "框架销售合同",
+            "doc_type_id": "框架销售合同",
+            "icon": "",
+            "desc": "使用NLP、机器学习、深度学习等技术审核出框架销售合同的风险点，包含合同完备性、合规性等44个审核规则。",
+            "id": 0
+        },
+
+        {
+            "features_type": 4,
+            "hot_type": 1,
+            "self_type": 1,
+            "status": 2,
+            "industry_type_id": "解析工具",
+            "name": "扫描件表格解析",
+            "icon": "assets/img/扫描件表格解析.png",
+            "desc": "支持从扫描件(后缀为.pdf）的文档中解析出表格，并保存成为Excel文件。",
+            "id": 0
+        },
+        {
+            "features_type": 4,
+            "hot_type": 1,
+            "self_type": 1,
+            "status": 2,
+            "industry_type_id": "解析工具",
+            "name": "PDF表格解析",
+            "icon": "assets/img/PDF表格解析.png",
+            "desc": "支持从PDF文件(后缀为.pdf）的文档中解析出表格，并保存成为Excel文件。",
+            "id": 0
+        },
+        {
+            "features_type": 4,
+            "hot_type": 0,
+            "self_type": 1,
+            "status": 2,
+            "industry_type_id": "解析工具",
+            "name": "图片表格解析",
+            "icon": "assets/img/图片表格解析.png",
+            "desc": "支持从图片(后缀名为.jpg, .png, .jpeg）中解析出表格，并保存成为Excel文件。",
+            "id": 0
+        },
+        {
+            "features_type": 4,
+            "hot_type": 0,
+            "self_type": 1,
+            "status": 1,
+            "industry_type_id": "解析工具",
+            "name": "无框表格解析",
+            "icon": "assets/img/无框表格解析.png",
+            "desc": "支持从文档(后缀名为.pdf)中解析出无线表格，并保存成为Excel文件。",
+            "id": 0
+        },
+        {
+            "features_type": 4,
+            "hot_type": 0,
+            "self_type": 1,
+            "status": 2,
+            "industry_type_id": "解析工具",
+            "name": "WORD表格解析",
+            "icon": "assets/img/WORD表格解析.png",
+            "desc": "支持从WORD文件(后缀为.doc, .docx)的文档中解析出表格，并保存成为Excel文件。",
+            "id": 0
+        },
+
+        {
+            "features_type": 5,
+            "hot_type": 1,
+            "self_type": 1,
+            "status": 1,
+            "industry_type_id": "常用比对形式",
+            "name": "电子文档与电子文档比对",
+            "icon": "assets/img/电子文档与电子文档@2x.png",
+            "desc": "支持电子版(后缀名.doc, .docx, .pdf, .txt)文件之间的比对。",
+            "id": 0
+        },
+        {
+            "features_type": 5,
+            "hot_type": 1,
+            "self_type": 1,
+            "status": 1,
+            "industry_type_id": "常用比对形式",
+            "name": "扫描件与电子文档比对",
+            "icon": "assets/img/扫描件与电子版比对.png",
+            "desc": "支持扫描件(后缀名为.pdf)和电子版(后缀名为.pdf, .doc, .docx, .txt)文档之间的比对。",
+            "id": 0
+        },
+        {
+            "features_type": 5,
+            "hot_type": 1,
+            "self_type": 1,
+            "status": 1,
+            "industry_type_id": "常用比对形式",
+            "name": "扫描件与扫描件比对",
+            "icon": "assets/img/扫描件与扫描件比对.png",
+            "desc": "支持扫描件(后缀名为.pdf)和扫描件(后缀名为.pdf)之间的比对。",
+            "id": 0
+        },
+        {
+            "features_type": 5,
+            "hot_type": 0,
+            "self_type": 1,
+            "status": 1,
+            "industry_type_id": "常用比对形式",
+            "name": "图片与图片比对",
+            "icon": "assets/img/图片与图片比对@2x.png",
+            "desc": "支持图片(后缀名为.jpg, .png, .jpeg)和图片(后缀名为.jpg, .png, .jpeg)之间的比对。",
+            "id": 0
+        },
+        {
+            "features_type": 5,
+            "hot_type": 0,
+            "self_type": 1,
+            "status": 1,
+            "industry_type_id": "常用比对形式",
+            "name": "扫描件与图片比对",
+            "icon": "assets/img/扫描件与图片比对@2x.png",
+            "desc": "支持扫描件(后缀名为.pdf)和图片(后缀名为.jpg, .png, .jpeg)之间的比对。",
+            "id": 0
+        },
+        {
+            "features_type": 5,
+            "hot_type": 0,
+            "self_type": 1,
+            "status": 1,
+            "industry_type_id": "常用比对形式",
+            "name": "图片与电子文档比对",
+            "icon": "assets/img/电子与图片比对@2x.png",
+            "desc":
+            "支持图片(后缀名为.jpg, .png, .jpeg)电子文档(后缀名为.pdf, .doc, .docx, .txt)之间的比对。",
+            "id": 0
+        },
+        {
+            "features_type": 5,
+            "hot_type": 0,
+            "self_type": 1,
+            "status": 1,
+            "industry_type_id": "常用比对形式",
+            "name": "多文档比对",
+            "icon": "assets/img/多文档比对@2x.png",
+            "desc": "支持同时上传多个电子版文档进行比较，比较方式为：设置一个模版文档，其余的文档均与该模版文件进行比较。",
+            "id": 0
+        }
+    ]
+}

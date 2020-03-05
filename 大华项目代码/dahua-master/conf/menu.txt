@@ -1,0 +1,15 @@
+word转html,将doc/docx转成html，部分doc文档转docx可能失败,/tools/word2html
+html结构化,将html结构化，可以按照自己想要的结构输出,/tools/html_parser
+#idps项目pdf下载,根据部署环境，项目名称，数据库端口号以及任务编号下载该任务的所有pdf文档,http://103.229.214.112:9998/idps/download_pdf
+#idps项目pdf下载,根据部署环境，项目名称，数据库端口号以及任务编号下载该任务的所有pdf文档,idps/download_pdf
+#idps项目字段id获取,根据不同的数据库自动获取其所有字段的id和name,idps/get_field_id_name
+#idps项目标注数据获取,根据不同部署环境，项目名称，数据库端口号以及任务编号下载该任务的所有标注数据,http://103.229.214.112:9998/idps/get_tagged_content
+#idps项目标注数据获取,根据不同部署环境，项目名称，数据库端口号以及任务编号下载该任务的所有标注数据,idps/get_tagged_content
+#idps项目富文本获取,根据不同部署环境，项目名称，数据库端口号以及任务编号下载该任务所有文档的rich_content,http://103.229.214.112:9998/idps/get_rich_content
+idps历史版本介绍,无,idps/infoshow,_blank
+海关项目一期排期,无,project/hg
+海关项目二期排期,无,project/hg2
+内部搜索,用于快速找到已有解决方案的文档,datagrand/search_info
+#测试链接(无用),无,https://git.datagrand.com/idps/idps_global/blob/master/docs/%E8%BE%BE%E8%A7%82%E6%99%BA%E8%83%BD%E6%96%87%E6%A1%A3%E5%AE%A1%E9%98%85%E7%B3%BB%E7%BB%9F%E6%8E%A5%E5%8F%A3%E6%96%87%E6%A1%A3.md
+以下为测试内容(建议别点),测试zTree显示菜单栏以方便更结构化地分类显示功能,http://www.baidu.com
+

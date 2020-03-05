@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>我的工具包首页</title>
+    <link rel="stylesheet" href="/static/css/zTreeStyle.css" type="text/css">
+    <script type="text/javascript" src="/static/js/jquery-1.4.4.min.js"></script>
+    <script type="text/javascript" src="/static/js/jquery.ztree.core.js"></script>
+    <SCRIPT type="text/javascript">
+		<!--
+		var setting = {
+			view: {
+				fontCss: getFont,
+				nameIsHTML: true
+			},
+            data:{
+			    key:{
+			        title:"title"
+                }
+            }
+		};
+
+		var zNodes =[
+			{ name:"文档转换", id:1, pId:0, font:{'font-weight':'bold'} ,url:"http://www.baidu.com", target:"show_iframe", title:"123123"},
+			{ name:"斜体字", font:{'font-style':'italic'}},
+			{ name:"有背景的字", font:{'background-color':'black', 'color':'white'}},
+			{ name:"红色字", font:{'color':'red'}},
+			{ name:"蓝色字", font:{'color':'blue'}},
+			{ name:"<span style='color:blue;margin-right:0px;'>view</span>.<span style='color:red;margin-right:0px;'>nameIsHTML</span>"},
+			{ name:"zTree 默认样式"}
+		];
+
+		function getFont(treeId, node) {
+			return node.font ? node.font : {};
+		}
+
+		$(document).ready(function(){
+			$.fn.zTree.init($("#treeDemo"), setting, zNodes);
+		});
+		//-->
+	</SCRIPT>
+</head>
+<body style="padding: 0px;margin: 0px">
+    <div style="width: 100%;border: 1px solid red;overflow: hidden;min-height: 1000px">
+        <div style="float: left;width: 15%;border: 1px solid blue;">
+            {% for each in menu_info %}
+                <div style="margin-top: 5px;margin-left: 5px;border-bottom: 1px solid black">
+                    <div>
+                        <a href="{{each[2]}}" target="{{each[3]}}">{{each[0]}}</a>
+                    </div>
+                    <div>
+                        {{each[1]}}
+                    </div>
+                </div>
+            {% endfor %}
+            <div class="zTreeDemoBackground left">
+                <ul id="treeDemo" class="ztree"></ul>
+            </div>
+        </div>
+        <div style="float: right;width: 84%;border: 1px solid green;min-height: 990px">
+            <iframe name="show_iframe" width="100%" style="min-height: 990px"></iframe>
+        </div>
+    </div>
+
+</body>
+</html>

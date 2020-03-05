@@ -1,0 +1,49 @@
+{
+  "aiAgreementNum": "HK01",
+  "uuid": "ea2dcb9fffad491baf46110537b7ec43",
+  "modelList": [
+    {
+      "lineNumber": "2",
+      "enuPingName": "10,52.11",
+      "innerModel": "1,0,01,01,10189#0001",
+      "outerModel": "DVR2216A-V2",
+      "quantity": "123",
+      "unitPriceExclTax": "567",
+      "unitPriceExclTaxDicount": "559"
+    },
+    {
+      "lineNumber": "3",
+      "enuPingName": "10,52.11",
+      "innerModel": "1,0,01,01,10189#0002",
+      "outerModel": "DVR2216A-V2",
+      "quantity": "134",
+      "unitPriceExclTax": "456",
+      "unitPriceExclTaxDicount": "450"
+    }
+  ],
+  "consignee": ".ArryS Parker",
+  "Tax": "Slamsneuetemnsen, te Peso,yhe fell'seeeong.seror s.eanall beid xdhed any setet\", ounterclaim or deducton. In case the withholding tax is ecuired by the applicable laws, the Buyersmhaaldle .bear such withholding tax. The Buyer shall be responsible tor obraining the tax ciearance certficate from the competent tax autnonty and prowde n3&the senerxunn te asysadethepaymRuver",
+  "Warranty": "Defective products will be serviced by the Seller according to its latest RMA policy.",
+  "Claim": "snvejarpybe3sy nessnens the Esrersetinneberwmeteye lbn.!\"ledwein 5ses.erthe agvel ot the prodwc ,at he pon of destination and swnponted by a survey report issued by aaaneyers Bp snonape \"he allesevsaacle snsesecar\"c,the wemat snsite anons\" hee.e ene.miteaemm.etwemscepeec brascmomcceesuat'esses.damages r snesen wwhar arsng awe as tarsston\"9eeyen oeanes  ns e a he hse.nve. snaihsseer te iocetohy nccense necse.bccetseeven\" brpmtedamages in connection with or arnsing out of this transaction.\"ne Buyer's sole remeay snall be, at the maximum, he recovery of onginar perchase pree mnus ahy aiscounts &nalal crears.\"",
+  "amountInclTax": "432",
+  "unitPriceDiscountExclKey": "Unit Price(CURRENCY)withdiscount",
+  "vat": "535",
+  "unitPriceKey": "Unit Price(CURRENCY)",
+  "entityName": "DAHUA TECHNOLOGY(HK) LIMITED",
+  "entityAddress": "13/F Gloucester Tower, The Landmark, 15 Queen's Road Central, Central, Hong Kong",
+  "customerName": "Larry S Parker",
+  "agreementNum": "20191201012",
+  "customerRegAddr": "Michigan Addison 2201 Elk Avenue",
+  "purchaserPO": "59,112.00",
+  "signDate": "2019,12.01",
+  "masterAgreement": "ctrical and electronics repairer",
+  "agreementRemarks": "Remark:",
+  "discount": "570",
+  "voucherDiscount": "535",
+  "totalAmount": "432",
+  "amountExclTax": "570",
+  "tradeMethod": "RMB",
+  "paymentTerms": "vance allocation",
+  "currency": "CURRENCY",
+  "uploadeLogin": "test_user"
+}

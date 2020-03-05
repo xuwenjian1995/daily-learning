@@ -1,0 +1,273 @@
+version: '3'
+services:
+  dahua:
+    image: dockerhub.datagrand.com/data-dev/dahua:20191231_1135
+    ports:
+      - 9999:9999
+    links:
+      - extract_admin_html
+      - extract_admin_api
+    volumes:
+      - /AI/dahua:/app
+#      - ./data/dahua/app.py:/app/app.py
+#      - ./data/dahua/route/dahua/compareIn.py:/app/route/dahua/compareIn.py
+#      - ./data/dahua/route/dahua/dahuaUtilsIn.py:/app/route/dahua/dahuaUtilsIn.py
+#      - ./data/dahua/route/dahua/pdfdeal.py:/app/route/dahua/pdfdeal.py
+#      - ./data/dahua/files:/app/files
+#      - ./data/dahua/log:/app/log
+#      - ./data/dahua/conf:/app/conf
+    deploy:
+      placement:
+        constraints:
+          - node.hostname == HQ-V-NLPTEST-1
+    environment:
+      TZ: Asia/Shanghai
+  detail_admin_html:
+#    image: dockerhub.datagrand.com/idps/new_extract_html:release_dahua_20191206_ea582d0
+    image: dockerhub.datagrand.com/idps/new_extract_html:release_dahua_20200103_ee3dd9f5
+    ports:
+      - 15555:80
+    links:
+      - node_proxy
+    deploy:
+      restart_policy:
+        condition: on-failure
+        max_attempts: 3
+        delay: 5s
+        window: 10s
+    volumes:
+      - ./data/extract_admin_api/upload/:/web/dist/upload
+      - ./data/model_manager/data/:/web/dist/model_manager
+      - ./data/share_data/:/web/dist/share_data
+      - ./data/predefined_rule_extract/evaluate_data/:/web/dist/rule_manager
+      - ./data/label_quality_check/data:/web/dist/label_quality_check
+  extract_admin_html:
+    image: dockerhub.datagrand.com/idps/new_extract_html:release_dahua_20191224_a3407d5c
+#    image: dockerhub.datagrand.com/idps/new_extract_html:release_dahua_20191204_f22530d
+#    image: dockerhub.datagrand.com/idps/new_extract_html:release_dahua_20191206_ea582d0
+#    image: dockerhub.datagrand.com/idps/new_extract_html:release_ci_20191206_test
+    volumes:
+      - ./data/extract_admin_html/default.conf:/etc/nginx/conf.d/default.conf/
+    ports:
+      - 15000:80
+    links:
+      - node_proxy
+    deploy:
+      restart_policy:
+        condition: on-failure
+        max_attempts: 3
+        delay: 5s
+        window: 10s
+  extract_admin_api:
+#    image: dockerhub.datagrand.com/idps/new_extract_api:release_dahua_20191204_f742d3e
+#    image: dockerhub.datagrand.com/idps/new_extract_api:release_dahua_20191209_7b3010ee
+#    image: dockerhub.datagrand.com/idps/new_extract_api:release_dahua_20191212_5995f78e
+    image: dockerhub.datagrand.com/idps/new_extract_api:release_dahua_20191212_a619fa8b
+    volumes:
+      - ./data/extract_admin_api/assets/jiemi.py:/web/api/app/common/assets/jiemi.py
+    deploy:
+      replicas: 20
+  node_proxy:
+    image: dockerhub.datagrand.com/idps/node-proxy:dahua_20200107
+    depends_on:
+      - extract_admin_html
+    links:
+      - extract_admin_api
+    deploy:
+      replicas: 20
+  mysql:
+    ports:
+    - 16000:3306
+    deploy:
+      restart_policy:
+        condition: on-failure
+        max_attempts: 3
+        delay: 5s
+        window: 10s
+  rabbitmq:
+    deploy:
+      restart_policy:
+        condition: on-failure
+        max_attempts: 3
+        delay: 5s
+        window: 10s
+  contract_diff:
+    deploy:
+      restart_policy:
+        condition: on-failure
+        max_attempts: 3
+        delay: 5s
+        window: 10s
+  redis:
+    deploy:
+      restart_policy:
+        condition: on-failure
+        max_attempts: 3
+        delay: 5s
+        window: 10s
+      placement:
+        constraints:
+        - node.hostname == HQ-V-NLPTEST-2
+
+        document_process:
+          deploy:
+            restart_policy:
+              condition: on-failure
+              max_attempts: 3
+              delay: 5s
+              window: 10s
+            replicas: 20
+  node_server_master:
+    deploy:
+      restart_policy:
+        condition: on-failure
+        max_attempts: 3
+        delay: 5s
+        window: 10s
+      replicas: 20
+  node_server_slave:
+    deploy:
+      replicas: 20
+      restart_policy:
+        condition: on-failure
+        max_attempts: 3
+        delay: 5s
+        window: 10s
+  message_queue:
+    deploy:
+      restart_policy:
+        condition: on-failure
+        max_attempts: 3
+        delay: 5s
+        window: 10s
+  unoconv:
+    deploy:
+      restart_policy:
+        condition: on-failure
+        max_attempts: 3
+        delay: 5s
+        window: 10s
+      replicas: 20
+  contract_check:
+    image: dockerhub.datagrand.com/idps/contract_check:release_ci_20191126_bfa44b4_test0104
+    deploy:
+      restart_policy:
+        condition: on-failure
+        max_attempts: 3
+        delay: 5s
+        window: 10s
+      replicas: 20
+  model_manager:
+    deploy:
+      restart_policy:
+        condition: on-failure
+        max_attempts: 3
+        delay: 5s
+        window: 10s
+  auto_rule_extract_online:
+    deploy:
+      restart_policy:
+        condition: on-failure
+        max_attempts: 3
+        delay: 5s
+        window: 10s
+      replicas: 20
+  auto_rule_extract_offline:
+    deploy:
+      restart_policy:
+        condition: on-failure
+        max_attempts: 3
+        delay: 5s
+        window: 10s
+  fields_analysis_online:
+    deploy:
+      restart_policy:
+        condition: on-failure
+        max_attempts: 3
+        delay: 5s
+        window: 10s
+      replicas: 20
+  fields_analysis_offline:
+    deploy:
+      restart_policy:
+        condition: on-failure
+        max_attempts: 3
+        delay: 5s
+        window: 10s
+  crf_extract_online:
+    deploy:
+      restart_policy:
+        condition: on-failure
+        max_attempts: 3
+        delay: 5s
+        window: 10s
+      replicas: 20
+  crf_extract_offline:
+    deploy:
+      restart_policy:
+        condition: on-failure
+        max_attempts: 3
+        delay: 5s
+        window: 10s
+  fuzzy_extract_online:
+    deploy:
+      restart_policy:
+        condition: on-failure
+        max_attempts: 3
+        delay: 5s
+        window: 10s
+      replicas: 20
+  fuzzy_extract_offline:
+    deploy:
+      restart_policy:
+        condition: on-failure
+        max_attempts: 3
+        delay: 5s
+        window: 10s
+  extract:
+    deploy:
+      restart_policy:
+        condition: on-failure
+        max_attempts: 3
+        delay: 5s
+        window: 10s
+  labeling_pdf_printer:
+    deploy:
+      restart_policy:
+        condition: on-failure
+        max_attempts: 3
+        delay: 5s
+        window: 10s
+  pdf2txt:
+    image: dockerhub.datagrand.com/idps/pdf2txt:release_ci_20191207_f4f684a
+    deploy:
+      restart_policy:
+        condition: on-failure
+        max_attempts: 3
+        delay: 5s
+        window: 10s
+      replicas: 20
+  table_parser_master:
+    image: dockerhub.datagrand.com/idps/table_parser:release_ci_20200108_bdb6b9b
+    deploy:
+      restart_policy:
+        condition: on-failure
+        max_attempts: 3
+        delay: 5s
+        window: 10s
+      replicas: 20
+  table_parser_slave:
+    image: dockerhub.datagrand.com/idps/table_parser:release_ci_20200108_bdb6b9b
+    deploy:
+      replicas: 20
+      restart_policy:
+        condition: on-failure
+        max_attempts: 3
+        delay: 5s
+        window: 10s
+networks:
+  default:
+    ipam:
+      driver: default
+      config:
+        - subnet: 10.192.0.0/16

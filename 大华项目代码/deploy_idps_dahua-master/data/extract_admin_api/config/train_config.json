@@ -1,0 +1,57 @@
+{
+  "field_id": "",
+  "field_name": "",
+  "doctype": "",
+  "data_path": "",
+  "version": "",
+  "services": {
+    "crf_extract": {
+      "extractor": {
+        "name": "char_feature_extractor",
+        "kwargs": {}
+      },
+      "f": 1,
+      "c": 2,
+      "template": "char_10.template"
+    },
+    "auto_rule_extract": {
+      "context_len_before_max": 20,
+      "context_len_before_min": 10,
+      "context_len_after": 10
+    },
+    "dl_extract": {
+      "extractor": {
+        "name": "char_feature_extractor",
+        "kwargs": {}
+      },
+      "dl_model_config": {
+        "loss_layer_type": "crf",
+        "batch_size": 16,
+        "pre_emb": true,
+        "bert_en": true,
+        "word_emb_en": false,
+        "char_emb_en": true,
+        "seg_emb_en": false,
+        "title_emb_en": false,
+        "steps_check": 5,
+        "max_epoch": 50
+      }
+    }
+  },
+  "algorithms": [
+    {
+      "label": "深度学习",
+      "value": "dl_extract"
+    },
+    {
+      "label": "CRF",
+      "value": "crf_extract",
+      "checked": true
+    },
+    {
+      "label": "自动规则",
+      "value": "auto_rule_extract",
+      "checked": true
+    }
+  ]
+}

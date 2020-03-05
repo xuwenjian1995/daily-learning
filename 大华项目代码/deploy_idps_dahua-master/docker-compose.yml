@@ -1,0 +1,314 @@
+version: "3"
+services:
+  contract_check:
+    environment:
+      CLAUSE_SIM_THD: 0.5
+    image: dockerhub.datagrand.com/idps/contract_check:release_ci_20191126_bfa44b4
+    restart: always
+    volumes:
+      - ./data/check/scripts:/root/contract_check_online/check/app/scripts
+      - ./data/check/log:/root/contract_check_online/check/log
+  contract_diff:
+    image: dockerhub.datagrand.com/idps/contract_diff:release_ci_20191107_ac8d415
+    volumes:
+      - ./data/diff/log:/data/log
+      - ./data/diff/conf:/data/conf
+      - ./data/extract_admin_api/upload:/web/api/upload
+    environment:
+      USER_ID: idps_20
+  document_process:
+    image: dockerhub.datagrand.com/idps/document_process:release_ci_20191127_4b14a59
+    links:
+      - unoconv
+      - node_server_master
+    volumes:
+      - ./data/share_data:/share_data
+      - ./data/extract_admin_api/upload:/data/upload_from_api
+      - ./data/document_process/log:/doc_process/doc_process/log
+      - ./data/document_process/conf:/doc_process/doc_process/conf
+  etcd:
+    image: bitnami/etcd:3.3.10
+    environment:
+    - ALLOW_NONE_AUTHENTICATION=yes
+  extract_admin_api:
+    depends_on:
+      - mysql
+      - redis
+      - unoconv
+      - contract_diff
+      - document_process
+      - contract_check
+      - model_manager
+      - labeling_pdf_printer
+      - predefined_rule_extract
+      - label_quality_check
+    environment:
+      CLASSIFY_REDIS_KEY: task:classify:queue
+      CONTRACT_CHECK: http://contract_check:10110/check
+      DIFF_HOST: http://contract_diff/diff/
+      DIFF_RESULT_USE_PATH: "True"
+      DOCUMENT_FORMAT: "True"
+      DOC_PROCESS: document_process:8000
+      EXTRACT_WITH_PATH: "False"
+      FILE_REDIS_HOST: redis
+      FILE_REDIS_INDEX: 0
+      FILE_REDIS_KEY: task:contract:queue
+      FILE_REDIS_PASSWORD:
+      FILE_REDIS_PORT: 6379
+      LOGIN_REDIS_INDEX: 1
+      MARK: http://labeling_pdf_printer:10022/api/marker
+      MODE: TESTING
+      MODEL_DELETE_URL: http://model_manager:8000/model_delete
+      MODEL_EVALUATE_URL: http://model_manager:8000/model_evaluate
+      MODEL_OFFLINE_REDIS_INDEX: 0
+      MODEL_OFFLINE_REDIS_KEY: queue:a
+      MODEL_ONLINE_URL: http://model_manager:8000/model_reload
+      MYSQL_DB_NAME: contract
+      MYSQL_HOST: mysql
+      MYSQL_PASSWORD: root
+      MYSQL_PORT: 3306
+      MYSQL_USER: root
+#      OCR: https://demo.datagrand.com
+      OCR: http://10.1.40.13:51401/ysocr/ocr
+      OCR_TYPE: "YS"
+      YS_DOWNLOAD_PATH: http://10.1.40.13:51401/file
+      OCR_TIMEOUT: 600
+      PRE_LABLE_HOST: extract
+      PRE_LABLE_PORT: 8000
+      PRE_RULE_EXTRACT_EVALUATE: http://predefined_rule_extract:8000/evaluate
+      PRE_RULE_EXTRACT_RELOAD: http://predefined_rule_extract:8000/reload
+      PRE_RULE_EXTRACT_VALIDATE: http://predefined_rule_extract:8000/validate
+      PRE_TAG: "True"
+      ROOT_DIR: /web/api
+      TABLE_PARSER_HOST: table_parser_master
+      TABLE_PARSER_PORT: "8012"
+      TZ: Asia/Shanghai
+      WORDSEG_REDIS_KEY: task:classify:queue
+      QUALITY_CHECK_HOST: label_quality_check
+      QUALITY_CHECK_PORT: 8000
+    image: dockerhub.datagrand.com/idps/new_extract_api:release_ci_20191201_8e1d6a7
+    links:
+      - mysql
+      - redis
+      - unoconv
+      - contract_diff
+      - document_process
+      - contract_check
+      - model_manager
+      - labeling_pdf_printer
+      - predefined_rule_extract
+      - label_quality_check
+    restart: always
+    volumes:
+      - ./data/extract_admin_api/tools/:/web/tools/
+      - ./data/extract_admin_api/CA:/CA/
+      - ./data/extract_admin_api/logs:/web/api/logs
+      - ./data/extract_admin_api/upload:/web/api/upload
+      - ./data/extract_admin_api/tmp:/tmp
+      - ./data/extract_admin_api/offline/logs:/web/offline/logs
+      - ./data/extract_admin_api/config/:/web/api/config/
+      - ./data/model_manager/data:/web/api/model_manager
+      - ./data/share_data:/share_data
+      - ./data/predefined_rule_extract/evaluate_data:/web/api/rule_manager
+      - ./data/label_quality_check/data:/web/api/label_quality_check
+  extract_admin_html:
+    depends_on:
+      - extract_admin_api
+    image: dockerhub.datagrand.com/idps/new_extract_html:release_ci_20191201_a9f04ee
+    links:
+      - extract_admin_api
+    restart: always
+    volumes:
+      - ./data/extract_admin_api/upload/:/web/dist/upload
+      - ./data/model_manager/data/:/web/dist/model_manager
+      - ./data/share_data/:/web/dist/share_data
+      - ./data/predefined_rule_extract/evaluate_data/:/web/dist/rule_manager
+      - ./data/label_quality_check/data:/web/dist/label_quality_check
+  labeling_pdf_printer:
+    image: dockerhub.datagrand.com/idps/labeling_pdf_printer:release_ci_20181213_c549306
+    volumes:
+      - ./data/labeling_pdf_printer/logs:/web/api/logs
+      - ./data/extract_admin_api/upload:/web/api/upload
+  message_queue:
+    depends_on:
+      - mysql
+      - redis
+      - unoconv
+      - document_process
+      - extract
+    environment:
+      CUSTOMER_NUMBER: 4
+      ROOT_DIR: /api/
+    image: dockerhub.datagrand.com/idps/async_process:release_ci_20191127_3cfc452
+    links:
+      - mysql
+      - redis
+      - unoconv
+      - document_process
+      - extract
+    volumes:
+      - ./data/share_data:/share_data
+      - ./data/extract_admin_api/upload:/data/upload_from_api
+      - ./data/message_queue/log:/async_process/async_process/log
+      - ./data/message_queue/conf/user_management:/async_process/async_process/conf/user_management
+    deploy:
+      replicas: 4
+  mysql:
+    environment:
+      MYSQL_DATABASE: contract
+      MYSQL_PASSWORD: root
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USER: root
+      TZ: Asia/Shanghai
+    image: dockerhub.datagrand.com/idps/mysql:latest
+    restart: always
+    volumes:
+      - ./data/mysql/data:/var/lib/mysql
+  ner_rpc:
+    environment:
+      - TZ=Asia/Shanghai
+    image: dockerhub.datagrand.com/nlp/ner_rpc:product_20190515
+    volumes:
+      - ./data/ner/log:/ner/log
+  node_server_master:
+    image: dockerhub.datagrand.com/idps/node_server_master:release_ci_20191120_01089fc
+    restart: always
+    depends_on:
+      - node_server_slave
+    links:
+      - node_server_slave
+    volumes:
+      - ./data/node_server_master/logs:/node_pdf/dist/logs
+      - ./data/node_server_master/upload/:/node_pdf/upload
+      - ./data/extract_admin_api/upload:/node_pdf/share_data
+      - ./data/share_data/node:/data/rich_content_output
+      - ./data/pdf2txt/online_data:/data/pdf2txt_online_data
+  node_server_slave:
+    image: dockerhub.datagrand.com/idps/node_server_slave:release_ci_20191115_ca718fb
+    restart: always
+    volumes:
+      - ./data/node_server_slave/logs/:/node_pdf/dist/logs
+      - ./data/node_server_slave/upload/:/node_pdf/upload
+      - ./data/share_data/node:/data/rich_content_output
+      - ./data/pdf2txt/online_data:/data/pdf2txt_online_data
+  pdf2txt:
+    depends_on:
+      - unoconv
+      - node_server_master
+    environment:
+      CONFIDENT: 0.95
+      ENV_OD_ROUTER: detect_by_file
+      NODE_HOST: node_server_master
+      NODE_PORT: 3001
+      OD_HOST: http://nlp-od.datagrand.net
+      PDF_CONCURRENT: 1
+      PDF_TIMEOUT: 3000
+      TABLE_PARSER_HOST: table_parser_master
+      TABLE_PARSER_PORT: 8012
+      UNOCONV_HOST: unoconv
+      UNOCONV_PORT: 3000
+      USER_ID: idps_20
+    image: dockerhub.datagrand.com/idps/pdf2txt:release_ci_20191111_0c5755f
+    links:
+      - unoconv
+      - node_server_master
+    volumes:
+      - ./data/share_data:/share_data
+      - ./data/pdf2txt/log:/data/log
+      - ./data/pdf2txt/online_data:/data/online_data
+      - ./data/pdf2txt/offline_data:/data/offline_data
+      - ./data/pdf2txt/scripts:/data/scripts
+  rabbitmq:
+    hostname: idps-rabbitmq
+    image: rabbitmq:3.6.15-management
+    volumes:
+      - ./data/rabbitmq/log:/var/log/rabbitmq
+      - ./data/rabbitmq/conf/rabbitmq.config:/etc/rabbitmq/rabbitmq.config:ro
+      - ./data/rabbitmq/conf/definitions.json:/etc/rabbitmq/definitions.json:ro
+  redis:
+    image: redis:4
+    volumes:
+      - ./data/redis/data:/data
+      - ./data/redis/conf:/etc/redis
+    command: ["redis-server", "/etc/redis/redis.conf"]
+  table_parser_master:
+    depends_on:
+      - unoconv
+      - node_server_master
+      - rabbitmq
+    environment:
+      NODE_HOST: node_server_master
+      NODE_PORT: "3001"
+      TYPE: master
+      USER_ID: idps_20
+    image: dockerhub.datagrand.com/idps/table_parser:release_ci_20191113_de5d72f
+    links:
+      - unoconv
+      - node_server_master
+      - rabbitmq
+    restart: always
+    volumes:
+      - ./data/share_data:/share_data
+      - ./data/table_parser/log:/data/log
+      - ./data/table_parser/online_data:/data/online_data
+      - ./data/table_parser/offline_data:/data/offline_data
+      - ./data/table_parser/conf:/data/custom_conf
+      - ./data/table_parser/scripts:/data/scripts
+  table_parser_slave:
+    depends_on:
+      - rabbitmq
+    deploy:
+      replicas: 16
+    environment:
+      TYPE: slave
+    image: dockerhub.datagrand.com/idps/table_parser:release_ci_20191113_de5d72f
+    links:
+      - rabbitmq
+    restart: always
+    volumes:
+      - ./data/share_data:/share_data
+      - ./data/table_parser/log:/data/log
+      - ./data/table_parser/online_data:/data/online_data
+      - ./data/table_parser/offline_data:/data/offline_data
+      - ./data/table_parser/conf:/data/custom_conf
+      - ./data/table_parser/scripts:/data/scripts
+  unoconv:
+    volumes:
+      - ./data/unoconvservice/upload:/unoconvservice/upload
+      - ./data/unoconvservice/logs:/unoconvservice/logs
+    image: dockerhub.datagrand.com/idps/unoconv:release_ci_20191128_ad91d97
+  wordseg_rpc:
+    environment:
+      - TZ=Asia/Shanghai
+    image: dockerhub.datagrand.com/nlp/wordseg_rpc:product_20190419
+    volumes:
+      - ./data/wordseg/log:/wordseg/log
+  bert_server:
+    image: dockerhub.datagrand.com/nlp/bert-service:20190531
+    environment:
+      - TZ=Asia/Shanghai
+  label_quality_check:
+    environment:
+      - TZ=Asia/Shanghai
+    image: dockerhub.datagrand.com/idps/label_quality_check:release_ci_20191023_24f454d
+    volumes:
+      - ./data/label_quality_check/conf:/label_quality_check/label_quality_check/conf
+      - ./data/label_quality_check/data:/label_quality_check/data
+      - ./data/label_quality_check/log:/label_quality_check/log
+      - ./data/extract_admin_api/upload:/label_quality_check/upload
+      - ./data/model_manager/data:/label_quality_check/model_manager_data
+  extract_offline:
+    environment:
+      MYSQL_HOST: mysql
+      MYSQL_DB_NAME: contract
+      MYSQL_USER: root
+      MYSQL_PASSWORD: root
+      MYSQL_PORT: 3306
+    image: dockerhub.datagrand.com/idps/new_extract_offline:dev_20190904
+    links:
+      - mysql
+    depends_on:
+      - mysql
+    restart: always
+    volumes:
+      - ./data/extract_offline/logs:/offline/logs

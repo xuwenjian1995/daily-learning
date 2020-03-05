@@ -1,0 +1,83 @@
+{
+  "use": "wf", 
+  "wf": [
+    "rich_content_input", 
+    "txt_reader", 
+    "normalize", 
+    "index_map",
+    "fields_analysis",
+    "crf_extract",
+    "auto_rule_extract",
+    "predefined_rule_extract",
+    "fuzzy_extract",
+    "table_extract",
+    "dl_extract",
+    "rule_extract",
+    "merge", 
+    "postprocess",
+    "get_doc_prob"
+  ],
+  "wf_old": [
+    "rich_content_input",
+    "txt_reader",
+    "normalize",
+    "index_map",
+    "fields_analysis",
+    "crf_extract",
+    "auto_rule_extract",
+    "predefined_rule_extract",
+    "diff_extract",
+    "fuzzy_extract",
+    "table_extract",
+    "dl_extract",
+    "rule_extract",
+    "merge",
+    "postprocess",
+    "get_doc_prob"
+  ],
+  "english_wf": [
+    "rich_content_input", 
+    "txt_reader", 
+    "normalize_english", 
+    "index_map", 
+    "remove_space", 
+    "stem", 
+    "crf_extract", 
+    "auto_rule_extract", 
+    "predefined_rule_extract", 
+    "diff_extract",
+    "rule_extract", 
+    "fuzzy_extract", 
+    "table_extract", 
+    "merge", 
+    "postprocess"
+  ], 
+  "pre_rule_extract_wf": [
+    "rich_content_input", 
+    "txt_reader", 
+    "normalize", 
+    "index_map", 
+    "predefined_rule_extract", 
+    "merge", 
+    "postprocess"
+  ], 
+  "normalize_wf": [
+    "txt_reader", 
+    "normalize"
+  ],
+  "fields_wf": [
+    "rich_content_input",
+    "txt_reader",
+    "normalize",
+    "index_map",
+    "fields_analysis_by_fields",
+    "diff_extract_by_fields",
+    "crf_extract_by_fields",
+    "auto_rule_extract_by_fields",
+    "fuzzy_extract_by_fields",
+    "table_extract_by_fields",
+    "dl_extract_by_fields",
+    "merge",
+    "postprocess"
+  ]
+}

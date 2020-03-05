@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form action="/" method="GET">
+        <label>所有文字匹配均为模糊匹配</label><input type="hidden" name="username" value="{{username}}"/>
+        <table border="1px solid black" cellspacing="0">
+            <tr>
+                <td>rowid</td>
+                <td><input name="rowid" value="{{rowid}}"/></td>
+                <td>请求来源</td>
+                <td>
+                    <select name="from_where">
+                        <option value="" {% if from_where=="" %}selected{% endif %} >全部</option>
+                        <option value="0" {% if from_where=="0" %}selected{% endif %} >一站式网站</option>
+                        <option value="1" {% if from_where=="1" %}selected{% endif %} >手机app</option>
+                        <option value="2" {% if from_where=="2" %}selected{% endif %} >邮箱</option>
+                        <option value="3" {% if from_where=="3" %}selected{% endif %} >复审</option>
+                    </select>
+                </td>
+                <td>文档编号</td>
+                <td><input name="doc_code" value="{{doc_code}}"/></td>
+                <td>是否标准文档</td>
+                <td>
+                    <select name="standard_type" value="{{standard_type}}">
+                        <option value="" {% if standard_type=="" %}selected{% endif %} >全部</option>
+                        <option value="1" {% if standard_type=="1" %}selected{% endif %} >标准文档</option>
+                        <option value="2" {% if standard_type=="2" %}selected{% endif %} >非标一单一议</option>
+                        <option value="3" {% if standard_type=="3" %}selected{% endif %} >非标框架类</option>
+                    </select>
+                </td>
+                <td>文档状态</td>
+                <td><input name="doc_status" value="{{doc_status}}"/></td>
+                <td>显示数量</td>
+                <td><input name="num" value="{{num}}"/></td>
+                <td><input type="submit" value="提交"/></td>
+            </tr>
+        </table>
+    </form>
+    <table border="1px solid black" cellpadding="0">
+        <thead>
+            <th style="width:160px">请求日期</th>
+            <th style="width:130px">rowid</th>
+            <th style="width:80px">请求来源</th>
+<!--            <th>用户编号</th>-->
+            <th style="width:300px">保存文件名</th>
+<!--            <th>文件ftp地址</th>-->
+            <th style="width:150px">文档编号</th>
+            <th style="width:100px">文档状态</th>
+<!--            <th>客户名称</th>-->
+<!--            <th>总金额</th>-->
+<!--            <th>业务归属人</th>-->
+            <th style="width:100px">标准文档</th>
+<!--            <th>idps文档类型</th>-->
+<!--            <th>待比对ftp地址</th>-->
+            <th style="width:300px">流程状态</th>
+            <th style="width:300px">错误信息</th>
+            <th style="width:50px">idps_id</th>
+            <th style="width:100px">最终结果</th>
+        </thead>
+        {% for each in result %}
+            <tr>
+<!--                <th>请求日期</th>-->
+                <td>{{each[0]}}</td>
+<!--                <th>rowid</th>-->
+                <td>{{each[1]}}</td>
+<!--                <th>请求来源</th>-->
+                <td>
+                    {% if each[2]=="2" %}
+                    邮箱
+                    {% endif %}
+                    {% if each[2]=="1" %}
+                    手机app
+                    {% endif %}
+                    {% if each[2]=="0" %}
+                    一站式网站
+                    {% endif %}
+                    {% if each[2]=="3" %}
+                    复审
+                    {% endif %}
+                </td>
+<!--                <th>用户编号</th>-->
+<!--                <td>{{each[3]}}</td>-->
+<!--                <th>保存文件名</th>-->
+                <td>{{each[4]}}</td>
+<!--                <th>文件ftp地址</th>-->
+<!--                <td>{{each[13]}}</td>-->
+<!--                <th>文档编号</th>-->
+                <td>{{each[5]}}</td>
+<!--                <th>文档状态</th>-->
+                <td>{{each[6]}}</td>
+<!--                <th>客户名称</th>-->
+<!--                <td>{{each[7]}}</td>-->
+<!--                <th>总金额</th>-->
+<!--                <td>{{each[8]}}</td>-->
+<!--                <th>业务归属人</th>-->
+<!--                <td>{{each[9]}}</td>-->
+<!--                <th>标准文档</th>-->
+                <td>
+                    {% if each[10]=="1" %}
+                    标准文档
+                    {% endif %}
+                    {% if each[10]=="2" %}
+                    非标一单一议
+                    {% endif %}
+                    {% if each[10]=="3" %}
+                    非标框架类
+                    {% endif %}
+                    {{each[18]}}
+                </td>
+<!--                <th>idps文档类型</th>-->
+<!--                <td>{{each[11]}}</td>-->
+<!--                <th>待比对ftp地址</th>-->
+<!--                <td>{{each[12]}}</td>-->
+<!--                <th>流程状态</th>-->
+                <td>{{each[14]}}</td>
+                <td><textarea style="width: 303px; margin: 0px; height: 100px;">{{each[17]}}</textarea></td>
+<!--                <th>最终结果</th>-->
+                <td>{{each[19]}}</td>
+                <td><a href="/docinfo?id={{each[16]}}">点击查看详情</a></td>
+            </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

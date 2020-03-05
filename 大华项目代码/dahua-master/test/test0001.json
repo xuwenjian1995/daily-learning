@@ -1,0 +1,89 @@
+{
+  'status': 'Approved',
+  'standard_type': '1',
+  'doc_type': '1',
+  'ftp_b_path': [
+    'ftp://10.1.1.191:21/crm/contract/F9vS907wNraM87dwC3c1-15QI0OH.pdf'
+  ],
+  'ht_info': {
+    'xufang': '西安惠拓信息科技有限公司',
+    'gongfang': '浙江大华科技有限公司',
+    'sheng': '上海市',
+    'jkrqjjsfs': '',
+    'xufanggaizhang': '西安惠拓信息科技有限公司',
+    'gongfanggaizhang': '龙梅 .',
+    'lianxirengongfang': '龙梅 .',
+    'zongji': 10100,
+    'daxiejine': '',
+    'xiaoxiejine': '',
+    'dianhua1': '18958105433',
+    'dianhua2': '123',
+    'lianxiren1': '皮球',
+    'lianxiren2': '龙梅 .',
+    'lianxidizhi1': '陕西省西安市碑林区滨江区1199号',
+    'lianxidizhi2': '杭州市滨江区长河街道滨安路1199号F座1层',
+    'xiangmuming': '业财测试-虚拟合同分批',
+    'hetongpingshenbianhao': '2071910176560001',
+    'fahuoxuqiushijian': '',
+    'jiaohuodidiansheng': '陕西省',
+    'jiaohuodidianshi': '陕西',
+    'jiaohuodidianqu': '碑林区',
+    'jiaohuodidianxiangqing': '滨安路1187号',
+    'shouhuoren': '阮英涛',
+    'shouhuolianxidianhua': '18958105455',
+    'yunshufangshi': '供方自行选择合适的货物运输方式。',
+    'fapiaokaijushijian': 12,
+    'fapiaoleixing': '',
+    'zhifufangshi': '',
+    'lianxiren3': '皮球',
+    'hetongqiandingriqi1': '2019-11-11',
+    'hetongqiandingriqi2': '2019-11-11',
+    'zhagnhumingcheng1': '西安惠拓信息科技有限公司',
+    'zhanghumingcheng2': '浙江大华科技有限公司',
+    'kaihuyinhang1': '蔡丽家开的银行',
+    'kaihuyinhang2': '建行杭州高新支行',
+    'yinhangzhanghu1': '456920100100097147',
+    'yinhangzhanghu2': '33001616727059988881',
+    'shuihao1': '91610103552348750D',
+    'shuihao2': '91330000062045693L',
+    'dizhidianhua1': '',
+    'dizhidianhua2': '',
+    'gongfangshoukuanzhanghaoxinxi': '',
+    'chuanzhen1': '',
+    'chuanzhen2': '',
+    'goods': [
+      {
+        'xuhao': '0',
+        'mingcheng': '网络视频解码器',
+        'xinghao': 'DH-NVD0905DH-4I-4K',
+        'shuliang': '2',
+        'danjia': '5000',
+        'xiaojijine': '10000'
+      },
+      {
+        'xuhao': '1',
+        'mingcheng': '成品解码器折扣与折让',
+        'xinghao': '',
+        'shuliang': '1',
+        'danjia': '-200',
+        'xiaojijine': '-200'
+      },
+      {
+        'xuhao': '2',
+        'mingcheng': '成品解码器折扣',
+        'xinghao': '',
+        'shuliang': '1',
+        'danjia': '300',
+        'xiaojijine': '300'
+      },
+      {
+        'xuhao': '3',
+        'mingcheng': '液晶拼接配件',
+        'xinghao': 'DHL460UCM-ES\\DHL460UCH-ES',
+        'shuliang': '4',
+        'danjia': '0',
+        'xiaojijine': '0'
+      }
+    ]
+  }
+}
